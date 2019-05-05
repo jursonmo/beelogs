@@ -662,6 +662,9 @@ func Info(f interface{}, v ...interface{}) {
 
 // Debug logs a message at debug level.
 func Debug(f interface{}, v ...interface{}) {
+	if LevelDebug > beeLogger.level {
+		return
+	}
 	beeLogger.Debug(formatLog(f, v...))
 }
 
